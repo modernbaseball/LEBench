@@ -171,8 +171,8 @@ if __name__ == '__main__':
     next_kern_idx = kern_idx + 1
     if DEBUG: print '[DEBUG] Running at kernel index: ' + str(kern_idx)
     
-    with open(KERN_INDEX_FILE, 'w') as fp:
-        fp.write(str(next_kern_idx).strip())
+    #with open(KERN_INDEX_FILE, 'w') as fp:
+        #fp.write(str(next_kern_idx).strip())
 
     if DEBUG: print '[DEBUG] Done writing kernel index %d for the next iteration' % next_kern_idx + '.'
 

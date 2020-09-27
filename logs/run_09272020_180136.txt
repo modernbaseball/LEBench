@@ -1,0 +1,16 @@
+make: Entering directory '/users/rami/LEBench/TEST_DIR'
+gcc -o OS_Eval -pthread -O0 OS_Eval.c 
+make: Leaving directory '/users/rami/LEBench/TEST_DIR'
+[DEBUG] Running at kernel index: 0
+[DEBUG] Done writing kernel index 1 for the next iteration.
+[INFO] --------------------------------------------------
+[INFO]              Starting LEBench tests
+[INFO]              Current time: 18:01:36.247340
+[INFO] current kernel version: 4.15.0-101-generic.
+[INFO] Preparing to run test OS_Eval.
+[INFO] Compiling test OS_Eval.c.
+[INFO] Running test with command: /users/rami/LEBench//TEST_DIR/OS_Eval 0 4.15.0-101-generic
+[INFO]              Finished running test OS_Eval, test returned 0, log written to: /users/rami/LEBench//RESULT_DIR/4.15.0-101-generic.
+[INFO]              Current time: 18:02:06.030588
+[DEBUG] Preparing to modify grub.
+[INFO] LEBench run concluded, finished testing on 1 kernels.
