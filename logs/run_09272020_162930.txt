@@ -1,0 +1,3 @@
+make: Entering directory '/users/rami/LEBench/TEST_DIR'
+gcc -o OS_Eval -pthread -O0 OS_Eval.c 
+make: Leaving directory '/users/rami/LEBench/TEST_DIR'
