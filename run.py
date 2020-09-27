@@ -77,7 +77,7 @@ def install_grub_file():
 
 def restart():
     print '[INFO] Restarting the machine now.'
-    call(['sudo', 'reboot'])
+    #call(['sudo', 'reboot'])
 
 
 """ Running the LEBench tests for the current kernel version.
