@@ -1,0 +1,32 @@
+933c941,946
+<   int fd_connect = accept(fd_server, (struct sockaddr *) &client_addr, &client_addr_len);
+---
+>   int fd_connect = accept(fd_server, (struct sockaddr *)0,
+>      (socklen_t *)0);
+>   if (fd_connect < 0) {
+>    perror("send_test:accept");
+>    exit(2);
+>   }
+974a988
+>     perror("send_test:sendto");
+975a990
+>     exit(2);
+985a1001,1003
+>   if (!WIFSIGNALED(status)) {
+>    exit(2);
+>   }
+1007a1026
+>  fflush(stdout);
+1018,1020d1036
+< 
+<   struct sockaddr_un client_addr;
+<   socklen_t client_addr_len;
+1033c1049,1054
+<   int fd_connect = accept(fd_server, (struct sockaddr *) &client_addr, &client_addr_len);
+---
+>   int fd_connect = accept(fd_server, (struct sockaddr *)0,
+>      (socklen_t *) 0);
+>   if (fd_connect < 0) {
+>    perror("recv_test:accept");
+>    exit(2);
+>   }
