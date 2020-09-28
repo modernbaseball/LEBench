@@ -102,18 +102,19 @@ def run_bench():
     if not os.path.exists(result_path):
         os.makedirs(result_path)
 
-    result_filename = join(RESULT_DIR, kern_version, TEST_NAME)
-    result_error_filename = join(RESULT_DIR, kern_version, TEST_NAME + '_err')
+    result_filename = join(RESULT_DIR, kern_version, TEST_NAME + '.out')
+    result_error_filename = join(RESULT_DIR, kern_version, TEST_NAME + '.err')
 
     result_fp = open(result_filename, 'w+')
     result_error_fp = open(result_error_filename, 'w+')
-    test_cmd = [TEST_DIR + TEST_NAME, '0', kern_version]
+    test_cmd = ['sudo', TEST_DIR + TEST_NAME, '0', kern_version]
     print '[INFO] Running test with command: ' + ' '.join(test_cmd)
     ret = call(test_cmd, stdout=result_fp, stderr=result_error_fp)
 
     print '[INFO]              Finished running test ' + TEST_NAME + \
             ', test returned ' + str(ret) + ', log written to: ' + result_path + "."
     print '[INFO]              Current time: ' + str(datetime.now().time())
+    
     with open(result_error_filename, 'r') as fp:
         lines = fp.readlines()
         if len(lines) > 0:

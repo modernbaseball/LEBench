@@ -889,7 +889,10 @@ void context_switch_test(struct timespec *diffTime) {
 
 int msg_size = -1;
 int curr_iter_limit = -1;
-#define sock "/TEST_DIR/socket"
+
+//#define sock "/TEST_DIR/socket"
+#define sock "/users/rami/LEBench/TEST_DIR/socket"		// thanks hao-lun
+
 void send_test(struct timespec *timeArray, int iter, int *i) {
 	int retval;
 	int fds1[2], fds2[2];
@@ -942,7 +945,7 @@ void send_test(struct timespec *timeArray, int iter, int *i) {
 		close(fds2[0]);
 
 
-        	kill(getpid(),SIGINT);
+        kill(getpid(),SIGINT);
 		printf("[error] unable to kill child process\n");
 		return;
 
@@ -973,6 +976,8 @@ void send_test(struct timespec *timeArray, int iter, int *i) {
 
 			if (retval == -1) {
 				printf("[error] failed to send.\n");
+				
+				exit(1);	// new
 			}
 		}
 
@@ -983,6 +988,9 @@ void send_test(struct timespec *timeArray, int iter, int *i) {
 		free(buf);
 		int status;
         	wait(&status);
+  if (!WIFSIGNALED(status)) {
+   exit(2);
+  }
 	}
 
 }
@@ -1004,6 +1012,9 @@ void recv_test(struct timespec *timeArray, int iter, int *i) {
 	memset(&server_addr, 0, sizeof(struct sockaddr_un));
 	server_addr.sun_family = AF_UNIX;
 	strncpy(server_addr.sun_path, sock, sizeof(server_addr.sun_path) - 1); 
+
+	// idk lol
+	fflush(stdout);
 
 	int forkId = fork();
 
@@ -1050,6 +1061,8 @@ void recv_test(struct timespec *timeArray, int iter, int *i) {
 
 			if (retval == -1) {
 				printf("[error] failed to recv.\n");
+				
+				exit(1);	// new
 			}
 		}
 
@@ -1086,6 +1099,8 @@ void recv_test(struct timespec *timeArray, int iter, int *i) {
 
 			if (retval == -1) {
 				printf("[error] failed to send.\n");
+				
+				exit(1);	// new
 			}
 		}
 
@@ -1096,7 +1111,7 @@ void recv_test(struct timespec *timeArray, int iter, int *i) {
 		close(fds2[1]);	
 		free(buf);
 
-        	kill(getpid(),SIGINT);
+        kill(getpid(),SIGINT);
 		printf("[error] unable to kill child process\n");
 		return;
 
@@ -1169,6 +1184,8 @@ int main(int argc, char *argv[])
 	info.name = "recv";
 	one_line_test_v2(fp, copy, recv_test, &info);
 	
+	// new
+	if( access(sock, F_OK) != -1 ) remove(sock);	// thanks hao-lun
 
 	msg_size = 96000;	// This size 96000 would cause blocking on older kernels!
 	curr_iter_limit = 1;
