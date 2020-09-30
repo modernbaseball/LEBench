@@ -1,4 +1,7 @@
 test_file.txt
 grub
 TEST_DIR/OS_Eval
-RESULT_DIR/
+./output*
+iteration
+kern_list
+logs/

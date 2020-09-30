@@ -1,0 +1,79 @@
+Performing test ref.
+Total test iteration 1000000.
+Test took: 0.317427015 seconds
+Performing test cpu.
+Total test iteration 100.
+Test took: 0.256161174 seconds
+Performing test getpid.
+Total test iteration 1000000.
+Test took: 0.519735484 seconds
+Performing test context siwtch.
+Total test iteration 100000.
+Test took: 329.944054422 seconds
+msg size: 1.
+curr iter limit: 50.
+Performing test send.
+Total test iteration 100000.
+Test took: 1.423959710 seconds
+Performing test recv.
+Total test iteration 100000.
+Test took: 1.408387138 seconds
+msg size: 96000.
+curr iter limit: 1.
+Performing test big send.
+Total test iteration 10000.
+Test took: 14.556481159 seconds
+Performing test big recv.
+Total test iteration 10000.
+Test took: 14.404461606 seconds
+Performing test fork.
+Total test iteration 20000.
+Test took: 8.352086577 seconds
+Performing test thr create.
+Total test iteration 50000.
+Test took: 2.542203880 seconds
+Performing test big fork.
+Total test iteration 5000.
+Test took: 26.881312832 seconds
+Page count: 12000.
+Performing test huge fork.
+Total test iteration 5000.
+Test took: 62.080420486 seconds
+file size: 4096.
+Performing test small write.
+Total test iteration 100000.
+Test took: 1.320980451 seconds
+Performing test small read.
+Total test iteration 100000.
+Test took: 0.207662313 seconds
+Performing test small mmap.
+Total test iteration 100000.
+Test took: 0.256625822 seconds
+Performing test small munmap.
+Total test iteration 100000.
+Test took: 1.421749775 seconds
+Performing test small page fault.
+Total test iteration 50000.
+
+lol
+
+Test took: 0.246748192 seconds
+Performing test select.
+Total test iteration 100000.
+Test took: 2.011124680 seconds
+Performing test poll.
+Total test iteration 100000.
+Test took: 1.977743223 seconds
+Performing test epoll.
+Total test iteration 100000.
+Test took: 2.782913169 seconds
+Performing test select big.
+Total test iteration 10000.
+Test took: 28.020266406 seconds
+Performing test poll big.
+Total test iteration 10000.
+Test took: 28.218765719 seconds
+Performing test epoll big.
+Total test iteration 10000.
+Test took: 37.126766642 seconds
+Test took: 1567.028334964 seconds
