@@ -31,7 +31,7 @@ def get_kern_list(idx):
             return lines[idx].strip()
         elif idx >= len(lines):
             print '[INFO] LEBench run concluded, finished testing on ' + str(len(lines)) + ' kernels.'
-            #os.remove(KERN_INDEX_FILE)
+            os.remove(KERN_INDEX_FILE)
             sys.exit(0)
         else:
             raise ValueError('Kernel index out of range, '
@@ -77,7 +77,7 @@ def install_grub_file():
 
 def restart():
     print '[INFO] Restarting the machine now.'
-    #call(['sudo', 'reboot'])
+    #call(['sudo', 'reboot'])		# no! i do this
 
 
 """ Running the LEBench tests for the current kernel version.
@@ -172,8 +172,8 @@ if __name__ == '__main__':
     next_kern_idx = kern_idx + 1
     if DEBUG: print '[DEBUG] Running at kernel index: ' + str(kern_idx)
     
-    #with open(KERN_INDEX_FILE, 'w') as fp:
-        #fp.write(str(next_kern_idx).strip())
+    with open(KERN_INDEX_FILE, 'w') as fp:
+        fp.write(str(next_kern_idx).strip())
 
     if DEBUG: print '[DEBUG] Done writing kernel index %d for the next iteration' % next_kern_idx + '.'
 
